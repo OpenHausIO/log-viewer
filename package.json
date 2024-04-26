@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "dateformat": "^4.6.3"
+    "dateformat": "^4.6.3",
+    "ws": "^8.16.0"
   }
 }
