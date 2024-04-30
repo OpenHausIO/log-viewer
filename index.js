@@ -5,9 +5,15 @@ const path = require("path");
 
 const colors = require("colors/safe");
 const dateFormat = require("dateformat");
-const { WebSocket, createWebSocketStream } = require("ws");
+const { WebSocket } = require("ws");
+const dotenv = require("dotenv");
+const { parsed } = dotenv.config();
 
 const levels = require("./levels.js");
+const {
+    BUFFER_STRG_L, 
+    BUFFER_STR_CLS
+} = require("./commands.js");
 
 
 const {
@@ -22,8 +28,22 @@ const {
     LOG_FILTER_NAME: "",
     LOG_FILTER_LEVEL: "",
     WEBSOCKET_ENDPOINT: ""
-}, process.env);
+}, parsed, process.env);
 
+
+process.stdin.on("data", (data) => {
+    if(data.compare(BUFFER_STRG_L) === 0 || data.compare(BUFFER_STR_CLS) === 0){
+        console.clear();
+        console.log(`Screen cleared: ${dateFormat(Date.now(), LOG_DATEFORMAT)}`);
+    }
+});
+
+
+
+if(LOG_FILTER_LEVEL !== "" || LOG_FILTER_NAME !== ""){
+    console.log(`LOG_FILTER_LEVEL=${LOG_FILTER_LEVEL}`);
+    console.log(`LOG_FILTER_NAME=${LOG_FILTER_NAME}`);
+}
 
 
 function handleLine(line) {

@@ -15,3 +15,7 @@ The tools looks for a logfile called `combined.log` in its **c**urrent **w**orki
 |`LOG_FILTER_NAME`||Logger name to view, e.g.: `system`, `http`, `plugins/abad0f8e-23f0-4c2e-aea3-aa5a17c037db`|
 |`LOG_FILTER_LEVEL`||Log level to view, e.g.: `info`, `debug`, `trace`, `warn`|
 |`WEBSOCKET_ENDPOINT`||WebSocket remote endpoint to connect. No local logfile needed, just connecto to your server|
+
+## Commands
+Screen to dirty? Clean it.
+<kbd>Ctrl</kbd> + <kbd>L</kbd>, <kbd>Enter</kbd> or `cls` + <kbd>Enter</kbd>
